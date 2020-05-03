@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 let todos = [];
 const todoRouter = express_1.default.Router();
 todoRouter.use((req, res, next) => { setTimeout(next, 1500); });
-todoRouter.get('/todoc', (req, res) => {
+todoRouter.get('/todos', (req, res) => {
     const responseDto = {
         data: todos
     };
