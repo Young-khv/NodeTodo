@@ -1,23 +1,26 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
+const express_1 = require("express");
+const PATH = '/todos';
 let todos = [];
-const todoRouter = express_1.default.Router();
+const todoRouter = express_1.Router();
 todoRouter.use((req, res, next) => { setTimeout(next, 1500); });
-todoRouter.get('/todos', (req, res) => {
+todoRouter.get(PATH, (req, res) => {
     const responseDto = {
-        data: todos
+        data: todos,
     };
     res.send(responseDto);
 });
-todoRouter.post('/todos', (req, res) => {
+todoRouter.post(PATH, (req, res) => {
     if (!req.body.data) {
         throw new Error('ERROR: body can not be empty');
     }
     todos = req.body.data;
+    const invalid = todos.filter((t) => !t.isTodo());
+    if (invalid.length > 0) {
+        res.statusMessage = 'Bad request schema';
+        res.status(500).end();
+    }
     res.send('Ok');
 });
 exports.default = todoRouter;

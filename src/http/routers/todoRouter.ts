@@ -1,25 +1,29 @@
-import express, { Router } from 'express';
-import ITodosDto from "../../types/ITodosDto";
-import ITodo from "../../types/ITodo";
+import { Router } from 'express';
+import TodosDto from '../../types/TodosDto';
+import Todo from '../../types/Todo';
 
-let todos: ITodo[] = [];
+const PATH = '/todos';
 
-const todoRouter : Router = express.Router();
+let todos: Todo[] = [];
 
-todoRouter.use((req, res, next) => {setTimeout(next,1500)});
+const todoRouter : Router = Router();
 
-todoRouter.get('/todos', (req, res) => {
-  const responseDto: ITodosDto = {
-    data: todos
+todoRouter.use((req, res, next) => { setTimeout(next, 1500); });
+
+todoRouter.get(PATH, (req, res) => {
+  const responseDto: TodosDto = {
+    data: todos,
   };
   res.send(responseDto);
 });
 
-todoRouter.post('/todos', (req, res) => {
-  if(!req.body.data) {
+todoRouter.post(PATH, (req, res) => {
+  if (!req.body.data) {
     throw new Error('ERROR: body can not be empty');
   }
-  todos = req.body.data as ITodo[];
+
+  todos = req.body.data as Todo[];
+
   res.send('Ok');
 });
 
