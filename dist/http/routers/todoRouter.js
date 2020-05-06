@@ -16,11 +16,6 @@ todoRouter.post(PATH, (req, res) => {
         throw new Error('ERROR: body can not be empty');
     }
     todos = req.body.data;
-    const invalid = todos.filter((t) => !t.isTodo());
-    if (invalid.length > 0) {
-        res.statusMessage = 'Bad request schema';
-        res.status(500).end();
-    }
     res.send('Ok');
 });
 exports.default = todoRouter;

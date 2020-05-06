@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const chalk_1 = __importDefault(require("chalk"));
 const app_1 = __importDefault(require("./http/app"));
 const server = app_1.default();
-const PORT = 3000;
+const PORT = 3001;
 server.listen(PORT, (err) => {
     if (err) {
         return console.error(chalk_1.default.stderr(err));

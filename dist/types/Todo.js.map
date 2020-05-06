@@ -1,1 +1,1 @@
-{"version":3,"file":"Todo.js","sourceRoot":"","sources":["../../src/types/Todo.ts"],"names":[],"mappings":";;AAOA,MAAqB,IAAI;IAOvB,MAAM;QACJ,OAAO,OAAO,IAAI,CAAC,EAAE,KAAK,QAAQ;eAC/B,OAAO,IAAI,CAAC,IAAI,KAAK,QAAQ;eAC7B,OAAO,IAAI,CAAC,KAAK,KAAK,SAAS,CAAC;IACrC,CAAC;CACF;AAZD,uBAYC"}
+{"version":3,"file":"Todo.js","sourceRoot":"","sources":["../../src/types/Todo.ts"],"names":[],"mappings":""}

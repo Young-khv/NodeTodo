@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request } from 'express';
 import TodosDto from '../../types/TodosDto';
 import Todo from '../../types/Todo';
 

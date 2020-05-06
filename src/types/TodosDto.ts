@@ -4,4 +4,4 @@ interface TodosDto {
   data: Todo[]
 }
 
-export default TodoDto;
+export default TodosDto;
